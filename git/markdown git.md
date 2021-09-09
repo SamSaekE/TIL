@@ -60,6 +60,11 @@ origin= remote repository
   yes. local repository 에는 commit 저장하면서 반영이 됏더라도 git push origin master 를 안해주면 remote repository 에 반영이 안됨.
 
 
+# GitHub Pages 무료 웹 호스팅 서비스
+- github repo 와 직접 연결되어있어 push 하면 바로 반영
+- remote repo name: username.github.io
+- 웹 주소: username.github.io
+
 
 
 ## git hub repository에서 local repository 로 가져오기(clone)
