@@ -57,7 +57,9 @@ git clone url
 
 # TODAY
 
-##  how to   **PULL** 
+
+
+## how to   **PULL** 
 
 class에서 코드를 열고 git clone 레포url 을 해버리면 class 안에 class_repo(master) 가 생김
 
@@ -108,12 +110,42 @@ git restore --staged 파일명.확장자
 
 프로젝트 처음 시작시, .git 레포 만들때 .gitignore도 만들어주는게 좋음
 
-## shared repo
+##  shared repo
 
 리모트 레포의 invite 기능을 활용하여 업뎃 주고받기 가능
 
+## 브랜치 BRANCH
 
+= 특정 커밋을 가리키는 '포인터'
 
+보통 마스터 브랜치를 현재 동작하고있는 버전.
 
+파생되는 브랜치는 현재 버전에서 기능이 추가되어 실험해보는 버전
 
- 
+ 브랜치를 합치는 방식(머지)에는 두가지 방식 존재
+
+1. 마스터를 땡겨오지는 머지 (fast forward)
+2.  머치 커밋 생성하며 머지
+
+참고) git log --graph --oneline : 로그 쉽게 보기
+
+## **STEP**: fast forward
+
+1. 브랜치 생성: git branch feature-signup
+2. 브랜치로 이동: git checkout feature-signup
+3. 커밋 반영시,  feature-signup 브랜치를 타게 됨
+4. 마스터브랜치로 이동: git checkout master
+5. 다시 f-s 브랜치로 이동: git checkout feature-signup
+6. 마스터를 가리키는 포인터를 f-s 브랜치의 마지막 커밋을 가리키도록 변경: git checkout master 로 변경시켜야하는 브랜치의 커밋으로 간 후, git merge feature-signup 을 이용해 마스터를 가리키던 포인터를 f-s 브랜치의 마지막 커밋을 가리키도록 함. *fast forward merge*
+
+## STEP : merge commit btw master&test
+
+1. master를 중심으로 합치고 싶으면 git checkout master 를 이용해 마스터로 간 후 git merge test를 통해 test 를 master로 흡수시킴
+2. 충돌 발생
+3. 수정 애드 <커밋-merge01>
+4. 즉 새로운 커밋으로 이동하며 머지됨.
+
+## STEP: 머지 커밋 btw master and feature
+
+주의)머지커밋이 생기는 기준: 브랜치가 갈라진 후 마스터 브랜치가 한번이라도 변경사항이 생기게 되면 충돌이 생김
+
